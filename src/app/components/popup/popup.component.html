@@ -1,0 +1,15 @@
+<div class="modal" [ngClass]="blurClass" id="darkbg" [hidden]="!visible" (click)="onModalClick()">
+    <div cdkDrag>
+    <div class="popup" [ngClass]="scaleClass" [ngStyle]="setStyle" [attr.fullScreen]="fullScreen" [attr.header]="header" clickStopPropagation>
+        <!-- <header> -->
+            <i class="material-icons closeBtn noselect" (click)="hidePopup()">close</i>
+            <i class="material-icons closeBtn noselect" [hidden]="!draggable" cdkDragHandle style="margin-right: 35px;opacity: 0.3;">api</i>
+            
+            <ng-content for="p-header"></ng-content>
+        <!-- </header> -->
+        <!-- <main> -->
+            <ng-content for="p-content"></ng-content>
+        <!-- </main>  -->
+    </div>
+</div>
+</div>

@@ -1,0 +1,30 @@
+<div class="gridContainer" [ngStyle]="setStyle" [ngClass]="setClass">
+    <app-loader class="gridLoader" *ngIf="showLoader"></app-loader>
+  <mat-table [dataSource]="datasource">
+      <ng-container *ngFor="let column of columns" [matColumnDef]="column.fieldName">
+        <mat-header-cell *matHeaderCellDef>
+            <div> 
+                {{column.header}} 
+            </div>
+            <input *ngIf="column.filter" class="antsStyle" clickStopPropagation type="text" (keyup)="keyUpTimer(column.fieldName,$event.target.value)" />
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{column.cell(row)}} </mat-cell>
+      </ng-container>
+      <!-- <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.phone}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="bxEmail">
+        <mat-header-cell *matHeaderCellDef> bxEmail </mat-header-cell>
+        <mat-cell *matCellDef="let user"> {{user.bxEmail}} </mat-cell>
+      </ng-container> -->
+      <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: getDisplayedColumns();" (click)="onRowClickEvent(row)"></mat-row>
+      
+    </mat-table>
+  <mat-paginator #paginator [pageSizeOptions]="[2, 5, 10, 20]" [pageSize]="pageSize" (page)="onPage($event)" showFirstLastButtons></mat-paginator>
+  </div>

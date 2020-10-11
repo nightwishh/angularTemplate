@@ -1,0 +1,44 @@
+.searchBar {
+    display: grid;
+    grid-template-columns: 40px auto;
+    text-align: center;
+    width: auto;
+    border-radius: 7px;
+    background: var(--input-bg-color);
+    height: 100%;
+    /* margin-left: 20px; */
+    transition: 0.3s all ease-in-out;
+    overflow: hidden;
+    /* position: relative; */
+    /* top: calc(50% - 20px); */
+}
+.searchBar:hover, .searchBar:focus-within {
+    background: var(--input-bg-color-hover);
+}
+
+.searchBar i.material-icons {
+    font-size: 15px;
+    color: var(--main-orange-color);
+    line-height: 40px;
+    /* margin-right: 10px; */
+}
+
+.searchBar:hover input, .searchBar:focus-within input {
+    color: var(--input-txt-color-hover);
+}
+
+.searchBar input {
+    float: left;
+    background: transparent;
+    border: 0px;
+    height: auto;
+    margin-top: 0px;
+    outline: none;
+    color: var(--default-txt-color);
+    font-family: FiraGO-Regular;
+}
+
+input::placeholder {
+    color: var(--input-placeholder-txt-color);
+    font-family: FiraGO-Light;
+}

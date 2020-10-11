@@ -1,0 +1,18 @@
+.modal {
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    /* width: -moz-available; */
+    /* width: -webkit-fill-available; */
+    /* width: stretch; */
+    height: 100%;
+    /* height: -moz-available; */
+    /* height: -webkit-fill-available; */
+    /* height: stretch; */
+    position: fixed;
+    z-index: 99;
+    place-items: center;
+    display: grid;
+    backdrop-filter: saturate(180%) blur(5px);
+}

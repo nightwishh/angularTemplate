@@ -1,0 +1,19 @@
+<p [style]="style" *ngIf="!editing; else editingContainer">
+    {{text || ngModel}}
+</p>
+<ng-template #editingContainer>
+<div class="" *ngIf="editingDirection == 'vertical';else horizontal">
+    <input type="text" #editInput [(ngModel)]="ngModel" (ngModelChange)="ngModelChangeEvent()" class="antsStyle" placeholder="დასახელება"/>
+    <br />
+    <button class="editBtn" [ngClass]="editBtnClass" (click)="editBtnClick()" clickStopPropagation>დადასტურება</button>
+    <br />
+    <button class="cancelBtn" [ngClass]="cancelBtnClass" (click)="cancelBtnClick()" clickStopPropagation [attr.border]=false>გაუქმება</button>
+</div>
+<ng-template #horizontal>
+    <div class="">
+        <input type="text" #editInput [(ngModel)]="ngModel" style="float: left;" (ngModelChange)="ngModelChangeEvent()" class="antsStyle" placeholder="დასახელება"/>
+        <span *ngIf="editControls" class="editBtn material-icons" [ngClass]="editBtnClass" style="float: left; background: transparent; margin-left: 10px; margin-right: 10px;" (click)="editBtnClick()" clickStopPropagation>done</span>
+        <span *ngIf="editControls" class="cancelBtn material-icons" style="float: left;" [ngClass]="cancelBtnClass" (click)="cancelBtnClick()" clickStopPropagation [attr.border]=false>cancel</span>    
+    </div>
+</ng-template>
+</ng-template>

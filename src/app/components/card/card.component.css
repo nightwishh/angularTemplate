@@ -1,0 +1,66 @@
+
+.card {
+    transition: all 0.2s ease-out;
+    width: 500px;
+    height: 600px;
+    position: relative;
+    margin: auto;
+    background: var(--popup-bg-color);
+    display: grid;
+    grid-template-rows: 100px auto;
+    box-shadow: var(--default-shadow);
+}
+.card[selected=true] {
+    background-color: rgba(0,0,0,0.05);
+}
+::ng-deep card-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    /* text-align: center; */
+    line-height: 110px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 35px;
+    font-family: BPG Nino Mtavruli;
+    background: var(--popup-header-color);
+    
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+
+}
+::ng-deep card-header span {
+    font-family: BPG Nino Mtavruli;
+}
+
+::ng-deep card-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: auto;
+}
+[fullscreen=true] {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0px !important;
+}
+[header=false] {
+    grid-template-rows: auto !important;
+}
+
+.scaleIn {
+    opacity: 1;
+    transform: scale(1);
+}
+.contextMenuItem {
+    display: table;
+}
+.contextMenuItem > i, .contextMenuItem > span {
+    display: table-cell;
+    vertical-align: middle;
+}
+.contextMenuItem > i.material-icons {
+    padding-right: 10px;
+}

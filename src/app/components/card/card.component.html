@@ -1,0 +1,23 @@
+<div class="card" [attr.selected]="selected" [ngClass]="innerClass" (click)="clickEvent()" #card clickStopPropagation (contextmenu)="onContextMenu($event, card)">
+    <!-- <header> -->
+        <ng-content for="p-header"></ng-content>
+    <!-- </header> -->
+    <!-- <main> -->
+        <ng-content for="p-content"></ng-content>
+    <!-- </main>  -->
+</div>
+<div style="visibility: hidden; position: fixed"
+    [style.left]="contextMenuPosition.x"
+    [style.top]="contextMenuPosition.y"
+    [matMenuTriggerFor]="contextMenu" *ngIf="contextMenuItems.length > 0">
+</div>
+<mat-menu #contextMenu="matMenu">
+	<ng-template matMenuContent let-item="item">
+		<button mat-menu-item class="contextMenuItem" (click)="onContextMenuAction(ctxItem)" [disabled]="ContextMenuDisabled(ctxItem)" *ngFor="let ctxItem of contextMenuItems">
+            <i class="material-icons" *ngIf="ctxItem.iconName">{{ctxItem.iconName}}</i>
+            <span>
+                {{ctxItem.label}}
+            </span>            
+        </button>
+	</ng-template>
+</mat-menu>
